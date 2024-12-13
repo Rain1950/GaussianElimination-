@@ -5,6 +5,8 @@
  * Zwraca 2 - błąd nieprawidłowych rozmiarów macierzy
  */
 int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
+
+	if(x->c != mat->c && x->c != b->c && b->c != mat->c ) return 2; // check czy liczba kolumn jest taka sama 
 				/**
 				 * Tutaj należy umieścić właściwą implemntację.
 				 */
