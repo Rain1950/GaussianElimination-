@@ -18,7 +18,7 @@ int eliminate(Matrix *mat, Matrix *b){
             exit(1);
         }
     }
-    // Forward Elimination
+    // Eliminacja
     for (i = 0; i < n; i++) {
         // Make all rows below this one 0 in the current column
         for (k = i + 1; k < n; k++) {
