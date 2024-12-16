@@ -1,30 +1,35 @@
 #include "gauss.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /**
  * Zwraca 0 - elimnacja zakonczona sukcesem
  * Zwraca 1 - macierz osobliwa - dzielenie przez 0
  */
 int eliminate(Matrix *mat, Matrix *b){
-     	 for(int i=1;i<=b->r-1;i++) {
+    int i, j, k;
+    int n = mat->r;
 
-             if(mat->data[i][i] == 0.0)
-             {
-                 printf("Mathematical Error!");
-                 exit(0);
-             }
-             for(int j=i+1;j<=b->r;j++)
-             {
-                 double ratio = mat->data[j][i]/b->data[i][i];
+    for (i = 0; i < n; i++) {
+        // Check for zero pivot element
+        if (fabs(mat->data[i][i]) < 1e-12) {
+            fprintf(stderr, "Error: Element diagonalny równy 0 w wierszu %d\n", i);
+            exit(1);
+        }
+    }
+    // Forward Elimination
+    for (i = 0; i < n; i++) {
+        // Make all rows below this one 0 in the current column
+        for (k = i + 1; k < n; k++) {
+            double factor = mat->data[k][i] / mat->data[i][i];
+            for (j = i; j < n; j++) {
+                mat->data[k][j] -= factor * mat->data[i][j];
+            }
+            b->data[k][0] -= (factor * b->data[i][0]);
+        }
+    }
+    return 0;
 
-                 for(int k=1;k<=b->r+1;k++)
-                 {
-                     mat->data[j][k] = mat->data[j][k] - ratio*mat->data[i][k];
-                 }
-		  }
-	 }
-
-		return 0;
 }
 
