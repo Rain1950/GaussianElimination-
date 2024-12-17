@@ -17,24 +17,22 @@ int main(int argc, char ** argv) {
 	printToScreen(b);
 
 	res = eliminate(A,b);
-    printf("Wektor b po przekształceniu\n");
+    	printf("Wektor b po przekształceniu\n");
 	printToScreen(b);
-/*
+
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
- 
-  res = backsubst(x,A,b);
-  
-    	printToScreen(x);
-      }
-  	  freeMatrix(x);
-  	} else {
+  		res = backsubst(x,A,b);
+		printf("Wektor wynikowy: \n");
+    		printToScreen(x);
+      	}
+  	 else {
   					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
   	}
-  
+  	freeMatrix(x);
   	freeMatrix(A);
   	freeMatrix(b);
-*/
+
 
 	return 0;
 }
