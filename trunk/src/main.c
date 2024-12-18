@@ -24,10 +24,9 @@ int main(int argc, char ** argv) {
 	if (x != NULL) {
   		res = backsubst(x,A,b);
 		printf("Wektor wynikowy: \n");
-    		printToScreen(x);
-      	}
-  	 else {
-  					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
+        printToScreen(x);
+    } else {
+        fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
   	}
   	freeMatrix(x);
   	freeMatrix(A);
