@@ -1,6 +1,7 @@
 all:
-	gcc -Wall --pedantic ../branches/testy_mr/*.c src/*.c -o bin/gauss
+	gcc -Wall --pedantic src/*.c -o bin/gauss
 
 test: all
-	bin/gauss dane/A dane/b
-	bin/gauss dane/A2 dane/b2
+		gcc src/gauss.c src/mat_io.c src/backsubst.c  ../branches/testy_mr/testy_mr.c -o bin/test
+	       	bin/test	
+	

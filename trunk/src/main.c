@@ -3,21 +3,10 @@
 #include "mat_io.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "../../branches/testy_mr/testy_mr.h"
 
 
 int main(int argc, char ** argv) {
 	
-
- if( CheckValidatedData()) return 1;
-
- if(CheckDiagonalElementSelection()) return 1;
- if(CheckSingularMatrix()) return 1;
-
- if(CheckWrongFormat()) return 1;
-
-
-
 
 
 
